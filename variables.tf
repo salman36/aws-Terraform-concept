@@ -9,3 +9,7 @@ variable "instance_type" {
 variable "instance_name" {
     default = "SulemanTerraformEC2"
 }
+
+variable "bucket_name" {
+    default = "my-bucket-terraform-suleman36302"
+}

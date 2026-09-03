@@ -3,6 +3,11 @@
 #}
 
 # use of local values and conditional expressions in output
-output "instance_name" {
-    value = local.name_tag
+#output "instance_name" {
+#    value = local.name_tag
+#}
+
+# use of Dependens on in output
+output "bucket_name" {
+    value = aws_s3_bucket.my_bucket.id
 }
