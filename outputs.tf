@@ -8,6 +8,11 @@
 #}
 
 # use of Dependens on in output
-output "bucket_name" {
-    value = aws_s3_bucket.my_bucket.id
+#output "bucket_name" {
+#    value = aws_s3_bucket.my_bucket.id
+#}
+
+# Workspaces in output
+output "workspace_name" {
+    value = "EC2-${terraform.workspace}"
 }

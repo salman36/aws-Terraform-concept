@@ -82,6 +82,48 @@
 
 # Dependens on
 
+#provider "aws" {
+#    region = var.aws_region
+#}
+
+# data is a resource of terraform (bta ha kay abhi koi chez create ni kerni balky dynamic data fetch ker kay ana ha )
+
+#data "aws_ami" "amazon_linux" {
+#    most_recent = true
+#    owners = ["amazon"]
+
+    # fiter basically use hta ha filter kerny kay ley amazon latest ami images ko (hvm) hardware virtual machine
+#    filter {
+#        name = "name"
+#        values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+#    }
+#}
+
+#resource "aws_s3_bucket" "my_bucket" {
+#    bucket = var.bucket_name
+   
+#    tags = {
+#        Name = "MyS3BucketS"
+#    }
+#}
+
+#resource "aws_instance" "suleman1_ec2" {
+#    ami = data.aws_ami.amazon_linux.id
+#    instance_type = var.instance_type
+
+#    tags = {
+#        Name = var.instance_name
+#    }
+#    depends_on = [aws_s3_bucket.my_bucket]
+#}
+
+
+
+
+
+
+# Terraform: Workspaces
+
 provider "aws" {
     region = var.aws_region
 }
@@ -112,7 +154,8 @@ resource "aws_instance" "suleman1_ec2" {
     instance_type = var.instance_type
 
     tags = {
-        Name = var.instance_name
+        Name = "EC2-${terraform.workspace}"
+        Environment = terraform.workspace
     }
-    depends_on = [aws_s3_bucket.my_bucket]
+    
 }
