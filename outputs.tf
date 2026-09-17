@@ -13,6 +13,6 @@
 #}
 
 # Workspaces in output
-output "workspace_name" {
-    value = "EC2-${terraform.workspace}"
-}
+#output "workspace_name" {
+#    value = "EC2-${terraform.workspace}"
+#}
